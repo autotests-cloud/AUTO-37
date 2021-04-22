@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.codeborne.selenide.AssertionMode.SOFT;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static org.openqa.selenium.logging.LogType.BROWSER;
@@ -66,6 +67,7 @@ public class DriverHelper {
         Configuration.browserVersion = getDriverConfig().webBrowserVersion();
         Configuration.browserSize = getDriverConfig().webBrowserSize();
         Configuration.timeout = 10000;
+        Configuration.assertionMode = SOFT;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
