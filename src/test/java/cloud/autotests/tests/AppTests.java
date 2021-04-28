@@ -1,5 +1,6 @@
 package cloud.autotests.tests;
 
+import com.codeborne.selenide.CollectionCondition;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -25,7 +26,7 @@ public class AppTests extends TestBase {
 
         step("найти алису в поиске", () -> {
             $("#header-search").setValue("алиса").submit();
-            assertThat($$("article[data-autotest-id=\"product-snippet\"]").size() > 0);
+            $$("article[data-autotest-id=\"product-snippet\"]").shouldHave(CollectionCondition.sizeGreaterThan(0));
 
         });
 
