@@ -1,6 +1,7 @@
 package cloud.autotests.tests;
 
 import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Selectors;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -33,9 +34,7 @@ public class AppTests extends TestBase {
         step("купить ее", () -> {
             $(By.xpath("//*[contains(@title,'Умная колонка Яндекс.Станция')]")).click();
             switchTo().window(1);
-            WebElement addToCartButton = $(By.xpath("//*[@data-zone-name='cpa-offer']//div//div[6]//button[@type='button']"));
-            JavascriptExecutor executor = (JavascriptExecutor)getWebDriver();
-            executor.executeScript("arguments[0].click();", addToCartButton);
+            $(Selectors.byText("Добавить в корзину")).click();
         });
     }
 }
